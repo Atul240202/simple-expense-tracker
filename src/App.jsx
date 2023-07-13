@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg';
 import ExpenseItem from './components/ExpenseItem';
 import Expenses from './components/Expenses';
 
-function App() {
+const App = () => {
   let expenses = [
     {
       id: '1',
@@ -26,6 +26,6 @@ function App() {
       <Expenses items={expenses} />
     </div>
   );
-}
+};
 
 export default App;
