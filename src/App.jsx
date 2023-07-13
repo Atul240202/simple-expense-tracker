@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import ExpenseItem from './components/ExpenseItem';
 import Expenses from './components/Expenses';
+import NewExpense from './components/NewExpense';
 
 const App = () => {
   let expenses = [
@@ -22,7 +23,7 @@ const App = () => {
   ];
   return (
     <div>
-      <h2>Lets get started </h2>
+      <NewExpense />
       <Expenses items={expenses} />
     </div>
   );

@@ -17,6 +17,9 @@ const ExpenseForm = () => {
           <input type='date' min='2021-01-01' max='2024-12-31' />
         </div>
       </div>
+      <div className='new-expense__actions'>
+        <button type='submit'>Submit</button>
+      </div>
     </form>
   );
 };
