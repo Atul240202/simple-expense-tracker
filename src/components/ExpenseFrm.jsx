@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './style/ExpenseForm.css';
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   // Below we are declaring single state for single input field (It is more preffered in the industry)
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
@@ -48,10 +48,13 @@ const ExpenseForm = () => {
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
-      date: enteredDate,
+      date: new Date(enteredDate),
     };
 
-    console.log(expenseData);
+    props.onSaveExpenseData(expenseData);
+    setEnteredTitle('');
+    setEnteredAmount('');
+    setEnteredDate('');
   };
 
   return (
@@ -59,12 +62,17 @@ const ExpenseForm = () => {
       <div className='new-expense__controls'>
         <div className='new-expense__control'>
           <label>Title</label>
-          <input type='text' onChange={titileChangeHandler} />
+          <input
+            type='text'
+            value={enteredTitle}
+            onChange={titileChangeHandler}
+          />
         </div>
         <div className='new-expense__control'>
           <label>Amount</label>
           <input
             type='number'
+            value={enteredAmount}
             min='10'
             step='5'
             onChange={amountChangeHandler}
@@ -74,6 +82,7 @@ const ExpenseForm = () => {
           <label>Date</label>
           <input
             type='date'
+            value={enteredDate}
             min='2021-01-01'
             max='2024-12-31'
             onChange={dateChangeHandler}
